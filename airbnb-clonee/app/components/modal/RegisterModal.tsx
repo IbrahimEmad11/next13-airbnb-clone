@@ -14,6 +14,8 @@ import useRegisterModal from '../../hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '../Heading';
 import Input from '../Input';
+import toast from 'react-hot-toast';
+import Button from '../Button';
 
 
 const RegisterModal = () => {
@@ -42,7 +44,7 @@ const RegisterModal = () => {
                 registerModal.onClose();
             })
             .catch((error) => {
-                console.error(error);
+                toast.error("Invalid credentials. Please try again.");
             })
             .finally(() => {
                 setIsLoading(false);
@@ -83,6 +85,37 @@ const RegisterModal = () => {
                 />
             </div>
     );
+
+    const footerContent = (
+        <div className='flex flex-col gap-4'>
+            <hr/>
+            
+            <Button
+                outline
+                title='Continue with Google'
+                icon = {FcGoogle}
+                onClick={() => {}}
+                />
+            <Button
+                outline
+                title='Continue with Github'
+                icon = {AiFillGithub}
+                onClick={() => {}}
+                />
+            <div className='flex flex-row items-center gap-2 justify-center'>
+                <div className='text-neutral-500'>
+                    Already have an account?
+                </div>
+                <div  
+                className='text-neutral-900 cursor-pointer hover:underline'
+                onClick={registerModal.onClose}
+                >
+                    Login
+                </div>
+            </div>
+        </div>
+    );
+            
     return ( 
         <Modal
         disabled = {isLoading}
@@ -91,7 +124,8 @@ const RegisterModal = () => {
         onClose={registerModal.onClose}
         onSubmit={handleSubmit(onSubmit)}
         actionLabel='Continue'
-        body = {bodyContent}  
+        body = {bodyContent}
+        footer={footerContent}  
         />
      );
 }
