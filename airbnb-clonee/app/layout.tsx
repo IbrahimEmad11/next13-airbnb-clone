@@ -1,26 +1,30 @@
- import type { Metadata } from 'next'
-import { Nunito } from 'next/font/google'
-import './globals.css'
-import Navbar from './components/navbar/Navbar'
+import type { Metadata } from "next";
+import { Nunito } from "next/font/google";
+import "./globals.css";
+import Navbar from "./components/navbar/Navbar";
+import Modal from "./components/modal/Modal";
+import ClientModal from "./clientmodal";
+import RegisterModal from "./components/modal/RegisterModal";
 
-const nunito = Nunito({ subsets: ['latin'] })
+const nunito = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Airbnb',
-  description: 'Book unique homes and experiences all over the world.',
-}
+  title: "Airbnb",
+  description: "Book unique homes and experiences all over the world.",
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <body className={nunito.className}>
-        <Navbar/>
+        <RegisterModal />
+        <Navbar />
         {children}
       </body>
     </html>
-  )
+  );
 }

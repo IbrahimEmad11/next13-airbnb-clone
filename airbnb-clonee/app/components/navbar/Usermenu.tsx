@@ -4,9 +4,11 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import MenuItem from './MenuItem';
 import { useCallback, useState, useEffect} from 'react';
-
+import useRegisterModal from '../../hooks/useRegisterModal';
 
 const UserMenu = () => {
+
+    const registerModal = useRegisterModal();
 
     const [showMenu, setShowMenu] = useState(false);
     
@@ -56,10 +58,8 @@ const UserMenu = () => {
                 <div className="absolute rounded-xl w-[40vw] md:w-3/4 overflow-hidden right-0 top-12 bg-white shadow-md py-2">
                     <div className="flex flex-col cursor-pointer">
                         <>
-                            <MenuItem onClick={() => {}} title="Host your home"/>
-                            <MenuItem onClick={() => {}} title="Host an experience"/>
-                            <MenuItem onClick={() => {}} title="Help"/>
                             <MenuItem onClick={() => {}} title="Log in"/>
+                            <MenuItem onClick={registerModal.onOpen} title="Sign up"/>
                         </>
                     </div>
                 </div>
