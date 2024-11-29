@@ -6,21 +6,30 @@ import { FcGoogle } from "react-icons/fc";
 import { useCallback, useState } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 
+import useLoginModal from "../../hooks/useLoginModal";
 import useRegisterModal from "../../hooks/useRegisterModal";
+
 import Modal from "./Modal";
 import Heading from "../Heading";
 import Input from "../inputs/Input";
 import toast from "react-hot-toast";
 import Button from "../Button";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { sign } from "crypto";
 
-import useLoginModal from "@/app/hooks/useLoginModal";
-
-const RegisterModal = () => {
+const LoginModal = () => {
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const router = useRouter();
+
+  const toggle = useCallback(() => {
+    loginModal.onClose();
+    registerModal.onOpen();
+  }, [loginModal, registerModal]);
 
   const {
     register,
@@ -28,47 +37,39 @@ const RegisterModal = () => {
     formState: { errors },
   } = useForm<FieldValues>({
     defaultValues: {
-      name: "",
       email: "",
       password: "",
     },
   });
 
-  const toggle = useCallback(() => {
-    registerModal.onClose();
-    loginModal.onOpen();
-  }, [loginModal, registerModal]);
-
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
 
-    axios
-      .post("/api/register", data)
-      .then(() => {
-        registerModal.onClose();
-      })
-      .catch((error) => {
-        toast.error("Invalid credentials. Please try again.");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    signIn("credentials", {
+      ...data,
+      redirect: false,
+    }).then((callback) => {
+      console.log("Callback:", callback);
+      setIsLoading(false);
+
+      if (callback?.ok) {
+        toast.success("Login successful");
+        router.refresh();
+        loginModal.onClose();
+      }
+
+      if (callback?.error) {
+        toast.error("Invalid credentials. Please try again");
+      }
+    });
   };
 
   const bodyContent = (
     <div className="flex flex-col gap-4">
-      <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
+      <Heading title="Welcome Back" subtitle="Login to your account!" />
       <Input
         id="email"
         label="Email"
-        disabled={isLoading}
-        register={register}
-        errors={errors}
-        required
-      />
-      <Input
-        id="name"
-        label="Name"
         disabled={isLoading}
         register={register}
         errors={errors}
@@ -103,12 +104,12 @@ const RegisterModal = () => {
         onClick={() => signIn("github")}
       />
       <div className="flex flex-row items-center gap-2 justify-center">
-        <div className="text-neutral-500">Already have an account?</div>
+        <div className="text-neutral-500">First time here?</div>
         <div
           className="text-neutral-900 cursor-pointer hover:underline"
           onClick={toggle}
         >
-          Login
+          Create an account!
         </div>
       </div>
     </div>
@@ -117,9 +118,9 @@ const RegisterModal = () => {
   return (
     <Modal
       disabled={isLoading}
-      title="Register"
-      isOpen={registerModal.isOpen}
-      onClose={registerModal.onClose}
+      title="Login"
+      isOpen={loginModal.isOpen}
+      onClose={loginModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
       actionLabel="Continue"
       body={bodyContent}
@@ -128,4 +129,4 @@ const RegisterModal = () => {
   );
 };
 
-export default RegisterModal;
+export default LoginModal;

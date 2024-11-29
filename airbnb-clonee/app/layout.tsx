@@ -2,10 +2,15 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
-import Modal from "./components/modal/Modal";
-import ClientModal from "./clientmodal";
-import RegisterModal from "./components/modal/RegisterModal";
+
 import ToasterProvider from "./providers/ToasterProvider";
+
+import RegisterModal from "./components/modal/RegisterModal";
+import LoginModal from "./components/modal/LoginModal";
+import RentModal from "./components/modal/RentModal";
+
+import getCurrentUser from "./actions/getCurrentUser";
+import ClientOnly from "./components/ClientOnly";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -14,17 +19,24 @@ export const metadata: Metadata = {
   description: "Book unique homes and experiences all over the world.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+
+  const currentUser = await getCurrentUser();
+
   return (
     <html lang="en">
       <body className={nunito.className}>
-        <ToasterProvider />
-        <RegisterModal />
-        <Navbar />
+        <ClientOnly>
+          <ToasterProvider />
+          <RentModal />
+          <LoginModal/>
+          <RegisterModal />
+          <Navbar currentUser = {currentUser}/>
+        </ClientOnly>
         {children}
       </body>
     </html>

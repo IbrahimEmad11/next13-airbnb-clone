@@ -8,12 +8,12 @@ const Logo = () => {
 
   return (
     <Image
+      onClick = {() => router.push("/")}
       alt="Airbnb Logo"
       className="hidden md:block cursor-pointer"
       height="100"
       width="130"
       src="/images/airbnb-logo.png"
-      onClick={() => router.push("/")}
     />
   );
 };
