@@ -64,7 +64,7 @@ const Categories = () => {
   }
 
   return (
-    <div className="relative px-4 md:px-10 z-0"> 
+    <div className="relative z-0"> 
     <Container>
         {/* Left Gradient Fade */}
         <div
