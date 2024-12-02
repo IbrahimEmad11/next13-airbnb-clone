@@ -10,65 +10,75 @@ export async function POST(
   request: Request,
   { params }: { params: IParams }
 ) {
-  const currentUser = await getCurrentUser();
+  try {
+    const currentUser = await getCurrentUser();
 
-  if (!currentUser) {
-    return NextResponse.error();
+    if (!currentUser) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const { listingId } = params;
+
+    if (!listingId || typeof listingId !== "string") {
+      return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
+    }
+
+    // Ensure no duplicates
+    let favoriteIds = [...(currentUser.favoriteIds || [])];
+    if (!favoriteIds.includes(listingId)) {
+      favoriteIds.push(listingId);
+    }
+
+    const user = await prisma.user.update({
+      where: {
+        id: currentUser.id,
+      },
+      data: {
+        favoriteIds,
+      },
+    });
+
+    return NextResponse.json(user);
+  } catch (error) {
+    console.error('Favorites POST Error:', error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
-
-  const { listingId } = params;
-
-  if (!listingId || typeof listingId !== "string") {
-    throw new Error("Invalid ID");
-  }
-
-  // Ensure no duplicates
-  let favoriteIds = [...(currentUser.favoriteIds || [])];
-  if (!favoriteIds.includes(listingId)) {
-    favoriteIds.push(listingId);
-  }
-
-  const user = await prisma.user.update({
-    where: {
-      id: currentUser.id,
-    },
-    data: {
-      favoriteIds,
-    },
-  });
-
-  return NextResponse.json(user);
 }
 
-export  async function DELETE(
+export async function DELETE(
   request: Request,
   { params }: { params: IParams }
 ) {
-  const currentUser = await getCurrentUser();
+  try {
+    const currentUser = await getCurrentUser();
 
-  if (!currentUser) {
-    return NextResponse.error();
+    if (!currentUser) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    }
+
+    const { listingId } = params;
+
+    if (!listingId || typeof listingId !== "string") {
+      return NextResponse.json({ error: 'Invalid ID' }, { status: 400 });
+    }
+
+    let favoriteIds = [...(currentUser.favoriteIds || [])];
+
+    // Remove the listingId from favoriteIds
+    favoriteIds = favoriteIds.filter((id) => id !== listingId);
+
+    const user = await prisma.user.update({
+      where: {
+        id: currentUser.id,
+      },
+      data: {
+        favoriteIds,
+      },
+    });
+
+    return NextResponse.json(user);
+  } catch (error) {
+    console.error('Favorites DELETE Error:', error);
+    return NextResponse.json({ error: 'Internal Server Error' }, { status: 500 });
   }
-
-  const { listingId } = params;
-
-  if (!listingId || typeof listingId !== "string") {
-    throw new Error("Invalid ID");
-  }
-
-  let favoriteIds = [...(currentUser.favoriteIds || [])];
-
-  // Remove the listingId from favoriteIds
-  favoriteIds = favoriteIds.filter((id) => id !== listingId);
-
-  const user = await prisma.user.update({
-    where: {
-      id: currentUser.id,
-    },
-    data: {
-      favoriteIds,
-    },
-  });
-
-  return NextResponse.json(user);
 }

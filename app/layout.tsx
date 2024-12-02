@@ -9,9 +9,8 @@ import RegisterModal from "./components/modal/RegisterModal";
 import LoginModal from "./components/modal/LoginModal";
 import RentModal from "./components/modal/RentModal";
 
-import getCurrentUser from "./actions/getCurrentUser";
-import ClientOnly from "./components/ClientOnly";
 import SearchModal from "./components/modal/SearchModal";
+import ClientOnly from "./components/ClientOnly";
 
 const nunito = Nunito({ subsets: ["latin"] });
 
@@ -20,14 +19,19 @@ export const metadata: Metadata = {
   description: "Book unique homes and experiences all over the world.",
 };
 
-export default async function RootLayout({
+// Separate server-side component for fetching the current user
+const CurrentUserComponent = async () => {
+  const getCurrentUser = (await import("./actions/getCurrentUser")).default;
+  const currentUser = await getCurrentUser();
+
+  return <Navbar currentUser={currentUser} />;
+};
+
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-
-  const currentUser = await getCurrentUser();
-
   return (
     <html lang="en">
       <head>
@@ -43,13 +47,11 @@ export default async function RootLayout({
           <ToasterProvider />
           <SearchModal />
           <RentModal />
-          <LoginModal/>
+          <LoginModal />
           <RegisterModal />
-          <Navbar currentUser = {currentUser}/>
+          <CurrentUserComponent /> {/* Dynamically renders Navbar */}
         </ClientOnly>
-        <div className="pb-20 pt-40">
-          {children}
-        </div>
+        <div className="pb-20 pt-40">{children}</div>
       </body>
     </html>
   );

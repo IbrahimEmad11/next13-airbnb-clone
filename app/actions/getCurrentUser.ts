@@ -6,7 +6,6 @@ import prisma from "@/app/libs/prismadb";
 export async function getSession() {
     try {
         const session = await getServerSession(authOptions);
-        console.log('GET SESSION session:', session);
         return session;
     } catch (error) {
         console.error('Error fetching session:', error);
