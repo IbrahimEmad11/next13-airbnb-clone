@@ -25,19 +25,16 @@ const Search = () => {
     }, [locationValue,getByValue]);
 
     const durationLabel = useMemo(() => {
-        let diff = 0;
-        if(startDate && endDate){
-            const startDateFormat = new Date(startDate as string)
-            const endDateFormat = new Date(endDate as string)
-            diff = differenceInDays(endDateFormat,startDateFormat);
+        if (startDate && endDate) {
+            const startDateFormat = new Date(startDate as string);
+            const endDateFormat = new Date(endDate as string);
+            const diff = differenceInDays(endDateFormat, startDateFormat);
+    
+            return `${diff > 0 ? diff : 1} Days`;
         }
-
-        if (diff === 0){
-            diff = 1;
-        }
-
-        return `${diff} Days`;
+        return "Anytime";
     }, [startDate, endDate]);
+    
 
     const guestLabel = useMemo(() => {
         if(guestCount){

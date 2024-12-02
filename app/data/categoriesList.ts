@@ -14,151 +14,142 @@ import { GiWindmill,
         GiCaveEntrance, 
         GiPalmTree,
          GiMountainCave,
-        GiMonumentValley  } from "react-icons/gi";
+        GiMonumentValley,  
+        GiPineTree,
+        GiTreasureMap} from "react-icons/gi";
 import { MdOutlineVilla, MdOutlineTerrain } from "react-icons/md";
-import { BsSnow } from "react-icons/bs";
-import { FaSkiing, FaDog , FaSpa, FaLeaf,FaShip, FaPaw, FaCity } from "react-icons/fa";
+import { FaSkiing, FaDog , FaSpa, FaLeaf,FaShip, FaPaw, FaCity, FaHome, FaCaravan } from "react-icons/fa";
 import { IoDiamond } from "react-icons/io5";
 
 export const categories = [
-    {
-      label: 'Beach',
-      icon: TbBeach,
-      description: 'Experience serene properties close to breathtaking beaches!',
-    },
-    {
-      label: 'Windmills',
-      icon: GiWindmill,
-      description: 'Stay near iconic windmills and enjoy the countryside charm!',
-    },
-    {
-      label: 'Modern',
-      icon: MdOutlineVilla,
-      description: 'Enjoy contemporary and luxurious modern living spaces!',
-    },
-    {
-      label: 'Countryside',
-      icon: TbMountain,
-      description: 'Relax in tranquil properties nestled in the countryside!',
-    },
-    {
-      label: 'Pools',
-      icon: TbPool,
-      description: 'Dive into properties with private or shared pool access!',
-    },
-    {
-      label: 'Islands',
-      icon: GiIsland,
-      description: 'Stay on picturesque islands with stunning water views!',
-    },
-    {
-      label: 'Lake',
-      icon: GiBoatFishing,
-      description: 'Discover properties close to peaceful lakes for a perfect retreat!',
-    },
-    {
-      label: 'Skiing',
-      icon: FaSkiing,
-      description: 'Stay near slopes for exciting skiing and snow activities!',
-    },
-    {
-      label: 'Castles',
-      icon: GiCastle,
-      description: 'Feel royal with properties in or near historic castles!',
-    },
-    {
-      label: 'Camping',
-      icon: GiForestCamp,
-      description: 'Experience the thrill of camping amidst nature!',
-    },
-    {
-      label: 'Arctic',
-      icon: BsSnow,
-      description: 'Explore properties in frosty arctic regions for a unique experience!',
-    },
-    {
-      label: 'Cave',
-      icon: GiCaveEntrance,
-      description: 'Stay in extraordinary properties located in or near caves!',
-    },
-    {
-      label: 'Desert',
-      icon: GiCactus,
-      description: 'Enjoy a unique desert getaway with scenic views!',
-    },
-    {
-      label: 'Barns',
-      icon: GiBarn,
-      description: 'Experience rustic charm in barn-style properties!',
-    },
-    {
-      label: 'Lux',
-      icon: IoDiamond,
-      description: 'Indulge in ultimate luxury with exclusive properties!',
-    },
-    {
-      label: 'Urban',
-      icon: FaCity,
-      description: 'Immerse yourself in the vibrant life of urban properties in bustling cities!',
-    },
-    {
-      label: 'Tropical',
-      icon: GiPalmTree,
-      description: 'Relax in tropical paradises surrounded by lush greenery and warm climates!',
-    },
-    {
-      label: 'Historical',
-      icon: GiMonumentValley,
-      description: 'Stay in properties steeped in history and cultural significance!',
-    },
-    {
-      label: 'Mountains',
-      icon: GiMountainCave,
-      description: 'Enjoy breathtaking views and adventures in mountain properties!',
-    },
-    {
-      label: 'Farmstay',
-      icon: GiFarmer,
-      description: 'Reconnect with nature at serene farmstay accommodations!',
-    },
-    {
-      label: 'Eco',
-      icon: FaLeaf,
-      description: 'Stay in eco-friendly properties designed with sustainability in mind!',
-    },
-    {
-      label: 'Vineyards',
-      icon: GiGrapes,
-      description: 'Experience the charm of vineyards and wine country retreats!',
-    },
-    {
-      label: 'Boats',
-      icon: FaShip,
-      description: 'Stay aboard unique boat accommodations for a one-of-a-kind experience!',
-    },
-    {
-      label: 'Treehouses',
-      icon: GiTreehouse,
-      description: 'Live your childhood dream in enchanting treehouse properties!',
-    },
-    {
-      label: 'Jungle',
-      icon: FaPaw,
-      description: 'Stay amidst lush jungles and explore vibrant wildlife nearby!',
-    },
-    {
-      label: 'Hills',
-      icon: MdOutlineTerrain,
-      description: 'Escape to charming hilltop properties with panoramic views!',
-    },
-    {
-      label: 'Wellness',
-      icon: FaSpa,
-      description: 'Rejuvenate your mind and body at wellness-focused retreats!',
-    },
-    {
-      label: 'Pet-friendly',
-      icon: FaDog,
-      description: 'Bring your furry friends along to pet-friendly properties!',
-    },  
-  ];
+  {
+    label: 'Beach',
+    icon: TbBeach,
+    description: 'Find stunning stays steps away from pristine beaches.',
+  },
+  {
+    label: 'Windmills',
+    icon: GiWindmill,
+    description: 'Experience the charm of stays near historic windmills.',
+  },
+  {
+    label: 'Modern',
+    icon: MdOutlineVilla,
+    description: 'Discover sleek, contemporary homes with stylish interiors.',
+  },
+  {
+    label: 'Countryside',
+    icon: TbMountain,
+    description: 'Unwind in peaceful homes surrounded by rolling hills.',
+  },
+  {
+    label: 'Pools',
+    icon: TbPool,
+    description: 'Enjoy refreshing stays with private or shared pools.',
+  },
+  {
+    label: 'Islands',
+    icon: GiIsland,
+    description: 'Escape to exclusive island getaways with stunning views.',
+  },
+  {
+    label: 'Lake',
+    icon: GiBoatFishing,
+    description: 'Relax by tranquil lakes with serene waterfront properties.',
+  },
+  {
+    label: 'Skiing',
+    icon: FaSkiing,
+    description: 'Stay close to slopes for thrilling winter adventures.',
+  },
+  {
+    label: 'Castles',
+    icon: GiCastle,
+    description: 'Feel like royalty with stays in historic castles.',
+  },
+  {
+    label: 'Camping',
+    icon: GiForestCamp,
+    description: 'Immerse yourself in nature with unique camping stays.',
+  },
+  {
+    label: 'Desert',
+    icon: GiCactus,
+    description: 'Enjoy serene desert getaways with stunning vistas.',
+  },
+  {
+    label: 'Lux',
+    icon: IoDiamond,
+    description: 'Indulge in luxury with exclusive, high-end properties.',
+  },
+  {
+    label: 'Urban',
+    icon: FaCity,
+    description: 'Immerse yourself in vibrant urban hubs and cityscapes.',
+  },
+  {
+    label: 'Tropical',
+    icon: GiPalmTree,
+    description: 'Stay in lush tropical paradises with warm climates.',
+  },
+  {
+    label: 'Historic Homes',
+    icon: GiMonumentValley,
+    description: 'Discover stays steeped in history and character.',
+  },
+  {
+    label: 'Mountains',
+    icon: GiMountainCave,
+    description: 'Enjoy breathtaking views and adventures in mountain stays.',
+  },
+  {
+    label: 'Farmstay',
+    icon: GiFarmer,
+    description: 'Reconnect with nature with serene farmstay accommodations.',
+  },
+  {
+    label: 'Eco',
+    icon: FaLeaf,
+    description: 'Stay in eco-friendly properties designed with sustainability in mind.',
+  },
+  {
+    label: 'Vineyards',
+    icon: GiGrapes,
+    description: 'Experience the charm of vineyard retreats and wine country stays.',
+  },
+  {
+    label: 'Boats',
+    icon: FaShip,
+    description: 'Stay aboard unique boat accommodations for a one-of-a-kind experience.',
+  },
+  {
+    label: 'Treehouses',
+    icon: GiTreehouse,
+    description: 'Live your childhood dream in enchanting treehouse stays.',
+  },
+  {
+    label: 'Wellness',
+    icon: FaSpa,
+    description: 'Rejuvenate your mind and body at wellness-focused retreats.',
+  },
+  {
+    label: 'Pet-Friendly',
+    icon: FaDog,
+    description: 'Bring your furry friends along to pet-friendly properties.',
+  },
+  {
+    label: 'Tiny Homes',
+    icon: FaHome,
+    description: 'Experience minimalist living in cozy, unique tiny homes.',
+  },
+  {
+    label: 'RV Stays',
+    icon: FaCaravan,
+    description: 'Enjoy mobile living in fully-equipped RV accommodations.',
+  },
+  {
+    label: 'Unique Stays',
+    icon: GiTreasureMap,
+    description: 'Discover extraordinary properties like yurts and igloos.',
+  },
+];

@@ -30,6 +30,14 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <title>Airbnb</title>
+        <meta
+          name="description"
+          content="Book unique homes and experiences all over the world."
+        />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
       <body className={nunito.className}>
         <ClientOnly>
           <ToasterProvider />
