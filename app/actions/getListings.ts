@@ -11,6 +11,9 @@ export interface ListingsParams {
   category?: string;
 }
 
+export const dynamic = "force-dynamic";
+
+
 export default async function getListings(params: ListingsParams) {
   try {
 

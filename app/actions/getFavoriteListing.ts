@@ -1,6 +1,8 @@
 import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "./getCurrentUser";
 
+export const dynamic = "force-dynamic";
+
 export default async function getFavoriteListings() {
     try {
         const currentUser = await getCurrentUser();

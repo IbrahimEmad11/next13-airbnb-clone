@@ -4,6 +4,8 @@ import PropertiesClient from "./PropertiesClient";
 import ClientOnly from "../components/ClientOnly";
 import EmptyState from "../components/EmptyState";
 
+export const dynamic = "force-dynamic";
+
 
 const TripsPage = async () => {
   const currentUser = await getCurrentUser();

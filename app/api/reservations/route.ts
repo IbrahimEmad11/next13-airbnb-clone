@@ -5,6 +5,7 @@ import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { list } from "postcss";
 
+export const dynamic = "force-dynamic";
 
 export async function POST(
     request: Request,

@@ -1,5 +1,7 @@
 import prisma from "@/app/libs/prismadb";
-import { list } from "postcss";
+
+
+export const dynamic = "force-dynamic";
 
 
 interface IParams {

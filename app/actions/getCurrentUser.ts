@@ -3,6 +3,8 @@ import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import prisma from "@/app/libs/prismadb";
 
+export const dynamic = "force-dynamic";
+
 export async function getSession() {
     try {
         const session = await getServerSession(authOptions);
@@ -37,7 +39,6 @@ export default async function getCurrentUser() {
             emailVerified: currentUser.emailVerified?.toISOString() || null,
         };
     } catch (error: any) {
-        console.error("Error in getCurrentUser:", error);
         return null;
     }
 }
