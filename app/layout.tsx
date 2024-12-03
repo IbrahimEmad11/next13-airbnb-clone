@@ -12,6 +12,8 @@ import RentModal from "./components/modal/RentModal";
 import SearchModal from "./components/modal/SearchModal";
 import ClientOnly from "./components/ClientOnly";
 
+export const dynamic = "force-dynamic";
+
 
 const nunito = Nunito({ subsets: ["latin"] });
 
