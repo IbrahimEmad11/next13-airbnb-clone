@@ -2,8 +2,6 @@ import prisma from "@/app/libs/prismadb";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import { NextResponse } from "next/server";
 
-export const dynamic = "force-dynamic";
-
 
 interface IParams{  
     reservationId?: string;
