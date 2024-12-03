@@ -1,9 +1,6 @@
 import prisma from "@/app/libs/prismadb";
 
 
-export const dynamic = "force-dynamic";
-
-
 interface IParams {
     listingId?: string;
     authorId?: string;
