@@ -40,9 +40,9 @@ You can check out a live demo of the Airbnb clone project [here](https://homefin
 
 <kbd><img width="944" alt="airbnb" src="https://raw.githubusercontent.com/IbrahimEmad11/next13-airbnb-clone/refs/heads/main/Screenshot%202024-12-04%20021539.png"></kbd>
 
-<kbd><img width="886" alt="login-modal" src="https://raw.githubusercontent.com/IbrahimEmad11/next13-airbnb-clone/refs/heads/main/Screenshot%202024-12-04%20021504.png"></kbd>
+<kbd><img width="944" alt="login-modal" src="https://raw.githubusercontent.com/IbrahimEmad11/next13-airbnb-clone/refs/heads/main/Screenshot%202024-12-04%20021504.png"></kbd>
 
-<kbd><img width="810" alt="listing" src="https://raw.githubusercontent.com/IbrahimEmad11/next13-airbnb-clone/refs/heads/main/Screenshot%202024-12-04%20021702.png"></kbd>
+<kbd><img width="944" alt="listing" src="https://raw.githubusercontent.com/IbrahimEmad11/next13-airbnb-clone/refs/heads/main/Screenshot%202024-12-04%20021702.png"></kbd>
 
 ## Prerequisites
 
@@ -87,9 +87,6 @@ Make sure you have the following software installed on your system:
       NEXTAUTH_SECRET=<your-nextauth-secret>
       ```
 
-  ```
-
-  ```
 
 ## Usage
 
