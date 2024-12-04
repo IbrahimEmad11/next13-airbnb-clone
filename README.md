@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Full Stack Airbnb Clone with Next.js 13 App Router: React, Tailwind, Prisma, MongoDB, NextAuth 
 
-## Getting Started
+![Copy of Fullstack Airbnb Clone ](https://user-images.githubusercontent.com/23248726/229031522-64a49ad0-66f7-4ea8-94a8-f64a0bb56736.png)
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Tailwind design
+- Tailwind animations and effects
+- Full responsiveness
+- Credential authentication
+- Google authentication
+- Github authentication
+- Image upload using Cloudinary CDN
+- Client form validation and handling using react-hook-form
+- Server error handling using react-toast
+- Calendars with react-date-range
+- Page loading state
+- Page empty state
+- Booking / Reservation system
+- Guest reservation cancellation
+- Owner reservation cancellation
+- Creation and deletion of properties
+- Pricing calculation
+- Advanced search algorithm by category, date range, map location, number of guests, rooms and bathrooms
+    - For example we will filter out properties that have a reservation in your desired date range to travel
+- Favorites system
+- Shareable URL filters
+    - Lets say you select a category, location and date range, you will be able to share URL with a logged out friend in another browser and they will see the same results
+- How to write POST and DELETE routes in route handlers (app/api)
+- How to fetch data in server react components by directly accessing database (WITHOUT API! like Magic!)
+- How to handle files like error.tsx and loading.tsx which are new Next 13 templating files to unify loading and error handling
+- How to handle relations between Server and Child components!
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Demo
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+You can check out a live demo of the Airbnb clone project [here](https://homefinder-gamma.vercel.app/).
+(Note: There are some deployment issues currently. For the best experience, please run the project locally.)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Screenshots
 
-## Learn More
+<kbd><img width="944" alt="airbnb" src="https://raw.githubusercontent.com/IbrahimEmad11/next13-airbnb-clone/refs/heads/main/Screenshot%202024-12-04%20021539.png"></kbd>
 
-To learn more about Next.js, take a look at the following resources:
+<kbd><img width="886" alt="login-modal" src="https://raw.githubusercontent.com/IbrahimEmad11/next13-airbnb-clone/refs/heads/main/Screenshot%202024-12-04%20021504.png"></kbd>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<kbd><img width="810" alt="listing" src="https://raw.githubusercontent.com/IbrahimEmad11/next13-airbnb-clone/refs/heads/main/Screenshot%202024-12-04%20021702.png"></kbd>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Prerequisites
 
-## Deploy on Vercel
+Make sure you have the following software installed on your system:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- git If you want to clone the project from GitHub and work with it locally, you will need to have Git installed on your system. You can download and install Git from the official website (https://git-scm.com/).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Node.js Application requires Node.js to be installed on your system in order to run. You can download and install the latest version of Node.js from the official website (https://nodejs.org/).
+
+## Installation
+
+- Clone the repository:
+
+  ```
+  git clone https://github.com/IbrahimEmad11/next13-airbnb-clone
+  ```
+
+- Navigate to the project directory:
+
+  ```
+  cd Airbnb
+  ```
+
+- Install the dependencies:
+
+  ```
+  npm install
+  ```
+
+- Set up the environment variables:
+
+  1.  Create a `.env.local` file in the root directory.
+
+  2.  Add the following variables to the .env file, replacing the placeholder values with your own:
+
+      ```
+      DATABASE_URL=<your-mongodb-uri>
+      GITHUB_CLIENT_ID=<your-github-client-id>
+      GITHUB_CLIENT_SECRET=<your-github-client-secret>
+      GOOGLE_CLIENT_ID=<your-google-client-id>
+      GOOGLE_CLIENT_SECRET=<your-google-client-secret>
+      NEXTAUTH_SECRET=<your-nextauth-secret>
+      ```
+
+  ```
+
+  ```
+
+## Usage
+
+- Start the development server:
+
+  ```
+  npm run dev
+  ```
+
+- Open your browser and visit `http://localhost:3000` to access the application.
+
+## Contributing
+
+Contributions are welcome! If you want to contribute to this project, please follow these steps:
+
+- Fork the repository.
+- Create a new branch for your feature or bug fix.
+- Commit your changes to the new branch.
+- Open a pull request back to the main repository, including a description of your changes.
